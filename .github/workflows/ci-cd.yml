@@ -2,7 +2,6 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-
   init:
     runs-on: ubuntu-latest
     strategy:
@@ -20,3 +19,7 @@ jobs:
         run: npm run build
       - name: linting
         run: npm run lint
+      - name: formating
+        run: npm run format
+      - name: cleaning
+        run: npm run clean
