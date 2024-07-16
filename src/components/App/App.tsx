@@ -6,9 +6,10 @@ function App() {
 
   return (
     <>
-      <StyledFlex justify={'center'}>
+      <StyledFlex justify={'center'} margin={'50vh'}>
         {increment}
         <button onClick={() => setIncrement((prev) => prev + 1)}>+</button>
+        <button onClick={() => setIncrement((prev) => prev - 1)}>-</button>
       </StyledFlex>
     </>
   );
