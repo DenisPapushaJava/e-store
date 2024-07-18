@@ -1,15 +1,20 @@
-import { useState } from 'react';
 import { StyledFlex } from '../Flex/styledFlex.ts';
-
+import { useState } from 'react';
+import DataFetcher from '../DataFetcher';
 function App() {
-  const [increment, setIncrement] = useState(0);
-
+  const [info, setInfo] = useState<{ message: string } | null>(null);
+  const [error, setError] = useState<{ message: string } | null>(null);
   return (
     <>
-      <StyledFlex justify={'center'} margin={'50vh'}>
-        {increment}
-        <button onClick={() => setIncrement((prev) => prev + 1)}>+</button>
-        <button onClick={() => setIncrement((prev) => prev - 1)}>-</button>
+      <StyledFlex justify={'center'}>
+        <h1>Data from Server:</h1>
+        <DataFetcher
+          url="http://localhost:3000/api"
+          onData={setInfo}
+          onError={setError}
+        />
+        <p>{info?.message}</p>
+        <p>{error?.message ? error.message : '...Loading...'}</p>
       </StyledFlex>
     </>
   );
