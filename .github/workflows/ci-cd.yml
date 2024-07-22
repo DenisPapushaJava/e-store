@@ -18,12 +18,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
-        run: npm install
+        run: yarn install
       - name: build project
-        run: npm run build
+        run: yarn build
       - name: linting
-        run: npm run lint
+        run: yarn lint
+      - name: types checking
+        run: yarn types:check
       - name: formating
-        run: npm run format
+        run: yarn format
       - name: cleaning
-        run: npm run clean
+        run: yarn clean
