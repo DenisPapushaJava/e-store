@@ -29,5 +29,3 @@ jobs:
         run: yarn types:check
       - name: formating
         run: yarn format
-      - name: cleaning
-        run: yarn clean
